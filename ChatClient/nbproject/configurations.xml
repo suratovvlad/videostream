@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="gui" projectFiles="true">
+        <itemPath>gui.h</itemPath>
+        <itemPath>gui/gui_qt.h</itemPath>
+        <itemPath>gui/gui_win32api.h</itemPath>
+        <itemPath>gui/mainwindow_win32api.h</itemPath>
+        <itemPath>resources.h</itemPath>
+        <itemPath>gui/widgets.h</itemPath>
+      </logicalFolder>
+      <itemPath>client.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>resources.rc</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="gui" projectFiles="true">
+        <itemPath>gui/gui_qt.cpp</itemPath>
+        <itemPath>gui/gui_win32api.cpp</itemPath>
+        <itemPath>gui/mainwindow_win32api.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>client.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="4">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <modules>core gui network</modules>
+        <defs>
+          <Elem>"DEFINES -= _UNICODE UNICODE"</Elem>
+          <Elem>CONFIG += console</Elem>
+        </defs>
+      </qt>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>gdi32</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="client.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/gui_qt.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/gui_qt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/gui_win32api.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/gui_win32api.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/mainwindow_win32api.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/mainwindow_win32api.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/widgets.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources.rc" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="4">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>MinGW_static|MinGW</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <qt>
+        <buildMode>1</buildMode>
+        <modules>core gui network</modules>
+        <defs>
+          <Elem>DEFINES -= _UNICODE UNICODE</Elem>
+          <Elem>CONFIG += console</Elem>
+        </defs>
+      </qt>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibLibItem>gdi32</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="client.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/gui_qt.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/gui_qt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/gui_win32api.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/gui_win32api.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/mainwindow_win32api.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="gui/mainwindow_win32api.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="gui/widgets.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources.rc" ex="true" tool="3" flavor2="0">
+        <customTool>
+          <customToolCommandline>windres.exe resources.rc .\lib\resources.o</customToolCommandline>
+          <customToolDescription>Compiling resources...</customToolDescription>
+          <customToolOutputs>.\lib\resources.o</customToolOutputs>
+          <customToolAdditionalDep>resources.h</customToolAdditionalDep>
+        </customTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

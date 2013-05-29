@@ -1,0 +1,94 @@
+/*
+#undef BITMAPFILEHEADER
+#undef BITMAPINFOHEADER
+
+typedef struct
+{
+    unsigned int    bfType;
+    unsigned long   bfSize;
+    unsigned int    bfReserved1;
+    unsigned int    bfReserved2;
+    unsigned long   bfOffBits;
+} BITMAPFILEHEADER;
+ 
+typedef struct
+{
+    unsigned int    biSize;
+    int             biWidth;
+    int             biHeight;
+    unsigned short  biPlanes;
+    unsigned short  biBitCount;
+    unsigned int    biCompression;
+    unsigned int    biSizeImage;
+    int             biXPelsPerMeter;
+    int             biYPelsPerMeter;
+    unsigned int    biClrUsed;
+    unsigned int    biClrImportant;
+} BITMAPINFOHEADER;
+*/
+unsigned char *read_bmp(const char *pathname, int *w, int *h)
+{
+	FILE *pFile;
+	long lSize;
+	
+	pFile = fopen(pathname , "rb");
+	if (pFile == NULL)
+	{
+		fputs("File error",stderr);
+		exit(1);
+	}
+	
+	fseek(pFile , 0 , SEEK_END);
+	lSize = ftell (pFile);
+	rewind(pFile);
+	
+	BITMAPFILEHEADER    BMP;
+	BITMAPINFOHEADER	BMPINFO;
+	
+	unsigned char *buffer = (unsigned char*) malloc (sizeof(unsigned char)*sizeof(BITMAPFILEHEADER));
+	if (buffer == NULL)
+	{
+		fputs ("Memory error",stderr);
+		exit (2);
+	}
+	long result = fread (buffer,1,sizeof(BITMAPFILEHEADER),pFile);
+	memcpy(&BMP,buffer,sizeof(BITMAPFILEHEADER));
+	free(buffer);
+	
+	unsigned char *buffer1 = (unsigned char*) malloc (sizeof(unsigned char)*sizeof(BITMAPINFOHEADER));
+	if (buffer1 == NULL)
+	{
+		fputs ("Memory error",stderr);
+		exit (2);
+	}
+	result += fread (buffer1,sizeof(BITMAPFILEHEADER),sizeof(BITMAPINFOHEADER),pFile);
+	memcpy(&BMPINFO, buffer1, sizeof(BITMAPINFOHEADER));
+	//rewind(pFile);
+	//free(buffer1);
+	
+	unsigned char *buffer2 = (unsigned char*) malloc (sizeof(unsigned char)*(lSize - sizeof(BITMAPFILEHEADER)- sizeof(BITMAPINFOHEADER)));
+	if (buffer2 == NULL)
+	{
+		fputs ("Memory error",stderr);
+		exit (2);
+	}
+	result += fread (buffer2,sizeof(BITMAPINFOHEADER),lSize,pFile);
+	
+	
+	*w = BMPINFO.biWidth;
+	*h = BMPINFO.biHeight;
+	
+    if (result != lSize)
+	{
+		fputs("Reading error",stderr);
+		exit(3);
+	}
+	
+	fclose (pFile);
+
+	
+	
+	//free(buffer);
+	
+	return buffer2;
+}
